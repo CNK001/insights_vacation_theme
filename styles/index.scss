@@ -1,0 +1,494 @@
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+
+// Typography
+@font-face {
+  font-family: 'effra_std_bd';
+  src: url(../../fonts/effra_std_bd-webfont.woff2) format('woff2'),
+    url(../../fonts/effra_std_bd-webfont.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'effra_std_rg_2';
+  src: url(../../fonts/effra_std_rg_2-webfont.woff2) format('woff2'),
+    url(../../fonts/effra_std_rg_2-webfont.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+$light-blue: #a6d0ed;
+$blue: #87c3ec;
+$navy: #081e3f;
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'effra_std_rg_2';
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-family: 'effra_std_bd';
+}
+
+img {
+  max-width: 100%;
+}
+
+.btn {
+  background: $navy;
+  border: 1px solid $navy;
+  color: #fff;
+  display: inline-block;
+  height: rem(38px);
+  line-height: rem(38px);
+  padding-left: rem(28px);
+  padding-right: rem(28px);
+  text-transform: uppercase;
+  transition: background-color .3s ease, border-color .3s ease, color .3s ease-in-out;
+
+  &:hover {
+    background: #fff;
+    color: $navy;
+  }
+
+  &--outline {
+    background: #fff;
+    color: $navy;
+
+    &:hover {
+      background: $navy;
+      color: #fff;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+
+  @include media-min($lg) {
+    max-width: rem(956px);
+  }
+
+  width: 100%;
+}
+
+.row {
+  display: flex;
+
+  @include media-max($lg) {
+    flex-wrap: wrap;
+  }
+}
+
+.col-left,
+.col-right {
+  flex: 0 0 100%;
+
+  @include media-min($lg) {
+    flex: 0 0 50%;
+  }
+}
+
+.video {
+  margin-bottom: rem(15px);
+  padding-bottom: 56.25%;
+  position: relative;
+  width: 100%;
+
+  iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.header {
+  background: $navy;
+
+  .navbar {
+    align-items: center;
+    display: flex;
+    height: rem(75px);
+    justify-content: space-between;
+
+    &__brand {
+      align-items: center;
+      display: flex;
+      max-height: 100%;
+    }
+
+    &__logo {
+      max-height: rem(44px);
+      object-fit: contain;
+      object-position: left;
+      margin-top: rem(1px);
+      @include media-max($lg) {
+        padding-left: rem(10px); 
+      }
+    }
+
+    &__phone {
+      color: #fff;
+      font-family: 'effra_std_rg_2';
+      font-size: rem(26px);
+      line-height: 1;
+      @include media-max($lg) {
+        padding-right: rem(10px); 
+      }
+    }
+  }
+}
+
+.banner {
+  position: relative;
+
+  &__background {
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  &__content {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &__layer {
+      background: rgba($blue, 0.6);
+      text-align: center;
+
+      @include media-max($lg) {
+        padding: 1rem;
+      }
+
+      @include media-min($lg) {
+        height: rem(220px);
+        width: rem(590px);
+        margin-bottom: rem(-25px);
+        margin-right: rem(-30px);
+      }
+    }
+  }
+
+  &__heading {
+    color: #fff;
+    font-size: rem(42px);
+    margin-top: 0;
+    @include media-min($lg) {
+      font-size: rem(64px);
+      margin-top: rem(20px);
+    }
+    margin-bottom: 0;
+    font-family: 'effra_std_rg_2';
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-size: rem(22px);
+
+    @include media-min($lg) {
+      font-size: rem(30px);
+    }
+
+    margin-top: rem(8px);
+    margin-bottom: rem(12px);
+    margin-top: 0;
+  }
+
+  &__button {
+    background: $navy;
+    border: rem(1px) solid #fff;
+    color: #fff;
+  }
+}
+
+.section {
+  padding-top: rem(32px);
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  &--europe-2018 {
+    h2 {
+      font-size: rem(45px);
+      color: #000;
+      margin-top: 0;
+    }
+
+    .btn {
+      margin-right: rem(7px);
+      margin-left: rem(7px);
+    }
+
+    .col-left {
+      .video {
+        @include media-min($lg) {
+          max-width: calc(100% - 5px);
+        }
+      }
+    }
+
+    .col-right {
+      @include media-max($lg) {
+        padding-left: rem(10px);
+        padding-right: rem(10px);
+      }
+      @include media-min($lg) {
+        padding-left: rem(23px);
+      }
+
+      font-size: rem(16px);
+      padding-top: rem(4px);
+
+      p {
+        margin-top: 0;
+        padding-right: rem(40px);
+        font-family: 'effra_std_rg_2';
+        margin-bottom: rem(10px);
+
+        &:last-of-type {
+          margin-bottom: rem(15px);
+        }
+      }
+    }
+  }
+
+  &--featured-journeys {
+    h2 {
+      font-size: rem(36px);
+      margin-top: rem(-5px);
+      line-height: 1;
+      font-family: 'effra_std_rg_2';
+    }
+
+    .journeys-list {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      @include media-min($lg) {
+        grid-gap: rem(30px);
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      margin-bottom: rem(20px);
+      margin-top: rem(54px);
+
+
+
+      .journey {
+        text-align: center;
+        @include media-max($lg) {
+          margin-bottom: rem(30px); 
+        }
+
+        h3 {
+          font-size: rem(20px);
+          margin-top: 0;
+          margin-bottom: 0;
+          line-height: 1;
+        }
+
+        p {
+          text-transform: uppercase;
+          font-size: rem(20px);
+          margin-top: 0;
+          margin-bottom: rem(8px);
+        }
+      }
+    }
+
+    .view-all {
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: rem(20px);
+      margin-top: rem(25px);
+
+      &__button {
+        color: $navy;
+        text-decoration: underline;
+
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  &--discover-europe {
+    background: $navy;
+    color: #fff;
+    text-align: center;
+    padding-top: rem(25px);
+    padding-bottom: rem(25px);
+
+
+    h3 {
+      color: $light-blue;
+      font-size: rem(30px);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .heading-save {
+      border-bottom: 1px solid #fff;
+      display: block;
+      font-family: 'effra_std_bd';
+      font-size: rem(60px);
+      margin: 0 auto;
+      padding-bottom: rem(20px);
+      text-align: center;
+      text-transform: uppercase;
+      width: rem(480px);
+      margin-bottom: rem(15px);
+    }
+  }
+
+  &--trips {
+    padding-top: 20px;
+
+    h3 {
+      font-size: rem(24px);
+      margin-bottom: rem(8px);
+
+      span {
+        display: block;
+      }
+    }
+
+    .cards {
+      display: flex;
+
+
+      @include media-max($lg) {
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        background: $navy;
+        color: #fff;
+        flex: 0 0 calc(100% - 30px);
+
+        @include media-min($lg) {
+          flex: 0 0 calc(100% / 3 - 22px);
+        }
+
+        margin-bottom: rem(20px);
+        text-align: center;
+        padding-bottom: rem(25px);
+
+        .btn {
+          border: 1px solid #fff;
+        }
+      }
+
+
+      &--first-row {
+        @include media-min($lg) {
+          justify-content: space-between;
+        }
+      }
+
+      &--second-row {
+        justify-content: center;
+
+        .card {
+          @include media-min($lg) {
+            &:first-child {
+              margin-right: rem(22px);
+            }
+
+            &:last-child {
+              margin-left: rem(11px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .informations {
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: rem(30px);
+    @include media-max($lg) {
+      padding-left: rem(10px);
+      padding-right: rem(10px);
+    }
+  }
+}
+
+.footer {
+  background-color: $navy;
+  color: #fff;
+  font-size: rem(10px);
+  text-align: center;
+  padding: rem(15px);
+
+  &__icons {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: rem(10px);
+  }
+
+  &__icon {
+    &--tollman {
+      width: rem(68px);
+    }
+
+    &--ttc {
+      width: rem(56px);
+      margin-left: rem(20px);
+      margin-right: rem(20px);
+    }
+
+    &--treadright {
+      width: rem(94px);
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .copyright {
+    flex: 0 0 100%;
+    margin-top: rem(20px);
+  }
+}
